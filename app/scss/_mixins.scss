@@ -1,0 +1,88 @@
+/* -------------------- Mixins -------------------- */
+
+// Centers vertically and horizontally (parent must have position:relative attribute)
+@mixin transparent-border() {
+    $opacity: 0;
+    $color: white;
+    -moz-background-clip: border;
+    /* Firefox 3.6 */
+    -webkit-background-clip: border;
+    /* Safari 4? Chrome 6? */
+    background-clip: border-box;
+    /* Firefox 4, Safari 5, Opera 10, IE 9 */
+    -moz-background-clip: padding;
+    /* Firefox 3.6 */
+    -webkit-background-clip: padding;
+    /* Safari 4? Chrome 6? */
+    background-clip: padding-box;
+    /* Firefox 4, Safari 5, Opera 10, IE 9 */
+    -moz-background-clip: content;
+    /* Firefox 3.6 */
+    -webkit-background-clip: content;
+    /* Safari 4? Chrome 6? */
+    background-clip: content-box;
+    $opacity: $opacity / 100;
+    // Unsupporting browsers get this
+    border-color: $color;
+    // Browsers that support RGBA will get this instead
+    border-color: rgba($color, $opacity);
+    // Prevent the element's background from reaching the edge of the border
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding;
+    background-clip: padding-box;
+}
+
+@mixin centerer($position:absolute) {
+    position: $position;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin v-center($position:relative) {
+    position: $position;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@mixin h-center($position:relative) {
+    position: $position;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@mixin bottom($position:relative) {
+    position: $position;
+    top: 100%;
+    transform: translateY(-105%);
+}
+
+@mixin inline($float:left) {
+    display: inline-block;
+    float: $float;
+    position: relative;
+}
+
+@mixin square() {
+    width: 100%;
+    position: relative;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    img {
+        width: 93.5%;
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+}
+
+@mixin square-content() {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+}
