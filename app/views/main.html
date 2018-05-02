@@ -78,13 +78,14 @@
 </div>
 
 
-<div class="divider" id="projects">
+<div class="divider first" id="projects" style="margin-top: 12em;">
     <div class="line"></div>
     <h1>Projects</h1>
     <div class="line"></div>
 </div>
 
 <div class="wrap" ng-class="{'wrap-first':$first}" ng-repeat="project in projects">
+<!-- <div class="wrap" ng-repeat="project in projects"> -->
     <div class="work-container">
        <a ng-href="{{project.link}}" target="_blank">
         <div class="images active" ng-if="project.title !== 'atlas app'">
