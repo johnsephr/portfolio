@@ -59,6 +59,12 @@
                     </a>
                 </div>
                 <button ng-if="work.video_path.length" ng-click="playVid(work.video_path,work.poster)">Watch Demo</button>
+
+                <!-- scroll to anchor onClick -->
+                <a ng-repeat="button in work.scroll_buttons" ng-click="gotoAnchor('contact')">
+                    <button>{{button.name}}</button>
+                </a>
+                <!-- standard button -->
                 <a ng-repeat="button in work.buttons" ng-href="{{button.link}}" target="_blank">
                     <button>{{button.name}}</button>
                 </a>
